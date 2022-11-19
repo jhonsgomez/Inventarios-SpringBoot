@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container" sec:authorize="hasAnyAuthority('ADMIN', 'CLIENTE')">
+    <a th:href="@{/panel}">Regresar</a>
+    <a th:href="@{/equipos/new}">Agregar Equipo</a>
+    <table border="">
+        <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Categoria</th>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="equipo : ${equipos}">
+            <td>
+                <img th:src="${equipo.getImagen()}" alt="" src="" style="width: 100px"><br>
+                <span>[[ ${equipo.codigo} ]]</span>
+            </td>
+            <td>[[ ${equipo.categoria.nombre} ]]</td>
+            <td>[[ ${equipo.nombre} ]]</td>
+            <td>[[ ${equipo.estado.nombre} ]]</td>
+            <td>$ [[ ${equipo.precio} ]]</td>
+            <td>
+                <a th:href="@{/equipos/edit/{id}(id = ${equipo.id})}">Editar</a>
+                <a th:href="@{/equipos/delete/{id}(id = ${equipo.id})}">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

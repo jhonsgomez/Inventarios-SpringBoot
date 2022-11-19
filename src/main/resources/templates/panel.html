@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container" style="width: 100%; height: 100vh; display: flex; flex-direction: column;">
+    <div class="title" style="width: 100%; text-align: center;">
+        <div sec:authorize="isAuthenticated()">
+            <h1>Nombre: [[ ${#request.userPrincipal.principal.nombre} ]]</h1>
+            <h1>Correo: [[ ${#request.userPrincipal.principal.username} ]]</h1>
+            <h1>Permisos: [[ ${#request.userPrincipal.principal.authorities} ]]</h1>
+            <form th:action="@{/auth/logout}" method="post">
+                <input type="submit" value="Logout">
+            </form>
+        </div>
+    </div>
+    <div sec:authorize="hasAnyAuthority('ADMIN', 'CLIENTE')">
+        <a th:href="@{/equipos/}" sec:authorize="hasAuthority('ADMIN')">Gestionar Equipos</a>
+        <a th:href="@{/reportes/}" sec:authorize="hasAuthority('ADMIN')">Gestionar Reportes</a>
+        <a th:href="@{/reportes/}" sec:authorize="hasAuthority('CLIENTE')">Gestionar mis Reportes</a>
+        <a th:href="@{/reportes/new}" sec:authorize="hasAnyAuthority('ADMIN', 'CLIENTE')">Realizar Reportes</a>
+    </div>
+</div>
+</body>
+</html>

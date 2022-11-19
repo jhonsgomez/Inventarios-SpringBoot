@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a th:href="@{/reportes/}">Regresar</a>
+    <form th:action="@{/reportes/save}" th:object="${reporte}" method="post">
+        <input type="hidden" th:field="*{id}"><br>
+        Codigo del equipo: <select th:field="*{equipo}">
+        <option th:each="equipo : ${equipos}" th:value="${equipo.id}">[[ ${equipo.codigo} ]]</option>
+        </select><br>
+        Descripcion: <textarea th:field="*{descripcion}"></textarea><br>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

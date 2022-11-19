@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/auth/login}" method="post">
+  Correo: <input type="email" name="username"><br>
+  Contraseña: <input type="password" name="password"><br>
+  <button type="submit">Ingresar</button>
+  <button type="button" onclick="window.location.href='/register'">Registrar</button>
+</form>
+</body>
+</html>

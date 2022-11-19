@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container" sec:authorize="hasAnyAuthority('ADMIN', 'CLIENTE')">
+    <a th:href="@{/panel}">Regresar</a>
+    <a th:href="@{/reportes/new}">Agregar un Reporte</a>
+    <table border="">
+        <thead>
+        <tr>
+            <th>Codigo</th>
+            <th>Fecha</th>
+            <th>Usuario</th>
+            <th>Equipo</th>
+            <th>Descripcion</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="reporte : ${reportes}">
+            <td>[[ ${reporte.codigo} ]]</td>
+            <td>[[ ${reporte.fecha} ]]</td>
+            <td>[[ ${reporte.usuario.nombre} ]]</td>
+            <td>[[ ${reporte.equipo.nombre} ]]</td>
+            <td>[[ ${reporte.descripcion} ]]</td>
+            <td>
+                <a th:href="@{/reportes/edit/{id}(id = ${reporte.id})}">Editar</a>
+                <a th:href="@{/reportes/check/{id}(id = ${reporte.id}, status = approve)}" sec:authorize="hasAuthority('ADMIN')">Aprobar</a>
+                <a th:href="@{/reportes/check/{id}(id = ${reporte.id}, status = disapprove)}" sec:authorize="hasAuthority('ADMIN')">Desaprobar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

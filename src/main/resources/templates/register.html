@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/usuarios/}" th:object="${usuario}" method="post">
+    Nombre: <input type="text" th:field="*{nombre}"><br>
+    Correo: <input type="email" th:field="*{correo}"><br>
+    Contrasena: <input type="password" th:field="*{contrasena}"><br>
+    <button>Registrar</button>
+    <button type="button" onclick="window.location.href='/login'">Ingresar</button>
+</form>
+</body>
+</html>

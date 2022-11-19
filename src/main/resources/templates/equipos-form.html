@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/equipos/}">Regresar</a>
+<form th:action="@{/equipos/save}" th:object="${equipo}" method="post">
+    <input type="hidden" th:field="*{id}"><br>
+    Imagen URL: <input type="text" th:field="*{imagen}"><br>
+    Categoria: <select th:field="*{categoria}">
+        <option th:each="categoria : ${categorias}" th:value="${categoria.id}">[[ ${categoria.nombre} ]]</option>
+    </select><br>
+    Nombre: <input type="text" th:field="*{nombre}"><br>
+    Descripcion: <input type="text" th:field="*{descripcion}"><br>
+    Ubicacion: <input type="text" th:field="*{ubicacion}"><br>
+    Precio: <input type="number" th:field="*{precio}"><br>
+    Estado: <select th:field="*{estado}">
+        <option th:each="estado : ${estados}" th:value="${estado.id}">[[ ${estado.nombre} ]]</option>
+    </select><br>
+    Fecha: <input type="date" th:field="*{fechaAdquisicion}">
+    <input type="submit" value="Enviar">
+</form>
+</body>
+</html>
