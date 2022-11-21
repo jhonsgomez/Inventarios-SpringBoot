@@ -65,7 +65,7 @@ public class ReportesController {
         String asunto = "[UTS-REPORT SYSTEM]: Nuevo reporte encontrado";
         String cuerpo = "Cordial Saludo.\n\nSe evidencio un nuevo reporte en el sistema de inventario tecnologico con la siguiente informacion: \n\n - Codigo: " + reporte.getCodigo() + "\n\n - Fecha: " + reporte.getFecha() + "\n\n - Solicitante: " + reporte.getUsuario().getNombre() + "\n\n- Equipo Reportado: " + reporte.getEquipo().getCodigo() + "\n\n- Descripcion: " + reporte.getDescripcion();
         emailSend("jhonsebastiangomezsierra@gmail.com", asunto, cuerpo);
-        return "redirect:/reportes/";
+        return "redirect:/panel#modal_tabla_usuarios";
     }
 
     @GetMapping("/edit/{id}")
@@ -94,7 +94,7 @@ public class ReportesController {
         }
         emailSend(reporte.getUsuario().getCorreo(), asunto, cuerpo);
         reporteRepository.deleteById(id);
-        return "redirect:/reportes/";
+        return "redirect://panel#modal_tabla_usuarios";
     }
 
     public void emailSend(String correo, String asunto, String cuerpo) {

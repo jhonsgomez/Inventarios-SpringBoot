@@ -42,7 +42,7 @@ public class EquiposController {
             equipo.setImagen("https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/image-not-found-icon.png");
         }
         equipoRepository.save(equipo);
-        return "redirect:/equipos/";
+        return "redirect:/panel#modal_tabla_personal";
     }
 
     @GetMapping("/edit/{id}")
@@ -57,6 +57,6 @@ public class EquiposController {
     @GetMapping("/delete/{id}")
     public String equiposDeleteProcess(@PathVariable Long id) {
         equipoRepository.deleteById(id);
-        return "redirect:/equipos/";
+        return "redirect:/panel#modal_tabla_personal";
     }
 }

@@ -1,0 +1,422 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    height: 100vh;
+    min-height: 100%;
+}
+
+/*====Header====#3F48CC;*/
+
+header {
+    height: 12%;
+    border-bottom: 2px solid #C0D72C;
+}
+
+.encabezado {
+    display: flex;
+    height: 100%;
+}
+
+.encabezado .logo {
+    display: flex;
+    align-items: center;
+    width: 30%;
+}
+
+.encabezado .logo img {
+    height: 100%;
+    width: auto;
+    padding: 0px 10px;
+}
+
+.encabezado .enlaces {
+    display: flex;
+    justify-content: flex-end;
+    width: 70%;
+    padding: 0px 30px;
+}
+
+.encabezado .enlaces .b {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    height: 100%;
+    color: #C0D72C;
+}
+
+.encabezado .enlaces a {
+    display: flex;
+    height: 100%;
+    margin-left: 20px;
+}
+
+.encabezado .enlaces a:hover {
+    text-decoration: none;
+}
+
+.encabezado .enlaces a p {
+    display: flex;
+    margin: auto;
+    color: #fff;
+    background-color: #0B4A75;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.encabezado .enlaces a p:hover {
+    background-color: #333333;
+    color: #FFFFFF;
+}
+
+/*====Main====*/
+
+main {
+    display: flex;
+    height: 88%;
+}
+
+/*====Modal tabla personal====*/
+
+main .crud {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 50%;
+}
+
+main .crud .btn-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    background-color: #C0D72C;
+    margin: 10px;
+    width: 120px;
+    height: 120px;
+    border-radius: 5px;
+}
+
+main .crud .btn-modal:hover {
+    background-color: #333333;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+main .modal-tabla-container {
+    display: flex;
+    box-shadow: 5px 10px 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    pointer-events: none;
+    transition: all 1s;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    padding: 0px 10px;
+}
+
+main #modal_tabla_personal:target {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+main #modal_tabla_usuarios:target {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+main .modal-tabla {
+    background-color: #FFFFFF;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+main .modal-tabla-container .modal-tabla .close-tabla {
+    height: 5%;
+    display: flex;
+    justify-content: end;
+    border-radius: 5px;
+}
+
+main .modal-tabla-container .modal-tabla .close-tabla a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 10%;
+    border-radius: 0px 5px 0px 0px;
+    color: #0B4A75;
+}
+
+main .modal-tabla-container .modal-tabla .close-tabla a:hover {
+    background-color: red;
+    width: 10%;
+    color: #fff;
+}
+
+main .modal-tabla-container .modal-tabla table {
+    border: 2px solid #0B4A75;
+    width: 90%;
+}
+
+main .modal-tabla-container .modal-tabla .cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 95%;
+    padding-bottom: 12px;
+    padding: 0px 10px;
+}
+
+main .modal-tabla-container .modal-tabla .cont .boton {
+    color: #000;
+    background-color: #C0D72C;
+    padding: 5px 10px;
+    border-radius: 2px;
+}
+
+main .modal-tabla-container .modal-tabla .cont .boton:hover {
+    background-color: #333333;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+main .modal-tabla-container .modal-tabla .cont form button:hover {
+    background-color: rgb(255, 107, 9)
+}
+
+main .modal-tabla-container .modal-tabla .login form a {
+    text-decoration: none;
+    color: #000;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+main .modal-tabla-container .modal-tabla .cont form a:hover {
+    text-decoration: underline;
+}
+
+/*====Reportes====*/
+
+main .reportes {
+    display: flex;
+    justify-content: center;
+}
+
+main .reportes a {
+    color: #FFFFFF;
+    background-color: #0B4A75;
+    padding: 5px 10px;
+    border-radius: 2px;
+    margin: 0px 10px;
+}
+
+main .reportes a:hover {
+    color: #FFFFFF;
+    background-color: #333333;
+    text-decoration: none;
+}
+
+.modal-container {
+    display: flex;
+    box-shadow: 5px 10px 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    pointer-events: none;
+    transition: all 1s;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    padding: 0px 10px;
+}
+
+#modal_container:target {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.modal-container .modal_report {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.modal-container .cont_report {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 95%;
+    padding-bottom: 12px;
+    padding: 0px 10px;
+}
+
+.modal-container .close {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    height: 50px;
+}
+
+.modal-container .close a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #C0D72C;
+    text-decoration: none;
+    height: 100%;
+    border-radius: 100%;
+    padding: 20px;
+    color: #000;
+}
+
+.modal-container .close a:hover {
+    background-color: #333333;
+    color: #FFFFFF;
+}
+
+main .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+main .form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    height: 80%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 0.5px green;
+    background-color: #FFFFFF;
+    padding: 0px 50px;
+}
+
+main .form form .box_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 50%;
+}
+
+main .form form .box_text .codigo {
+    display: flex;
+    align-items: center;
+}
+
+main .form form .box_text .codigo label {
+    margin: 2px 5px;
+}
+
+main .form form .box_text .description {
+    display: flex;
+    align-items: center;
+}
+
+main .form form .button {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+main .form form .button .b2 {
+    margin: 2px 10px;
+    border: 10px;
+    padding: 2px;
+    width: 150px;
+    background-color: #C0D72C;
+    color: #000;
+    border-radius: 5px;
+}
+
+main .form form .button .b2:hover {
+    background-color: #333333;
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 720px) {
+
+    header .encabezado .logo {
+        width: 0%;
+        display: none;
+    }
+
+    header .encabezado .enlaces {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    header .encabezado .enlaces .b {
+        display: none;
+    }
+
+    main .form form {
+        width: 60%;
+        height: 60%;
+    }
+
+    main .form .encabezado .logo {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    main .form .encabezado .portada {
+        width: 0%;
+    }
+
+    main .form form .box_text {
+        display: flex;
+        justify-content: center;
+    }
+
+    main .form form .box_text .codigo {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    main .form form .box_text .description {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    main .form form .button {
+        display: flex;
+        justify-content: center;
+    }
+}

@@ -3,19 +3,50 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
 >
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <a th:href="@{/reportes/}">Regresar</a>
-    <form th:action="@{/reportes/save}" th:object="${reporte}" method="post">
-        <input type="hidden" th:field="*{id}"><br>
-        Codigo del equipo: <select th:field="*{equipo}">
-        <option th:each="equipo : ${equipos}" th:value="${equipo.id}">[[ ${equipo.codigo} ]]</option>
-        </select><br>
-        Descripcion: <textarea th:field="*{descripcion}"></textarea><br>
-        <input type="submit" value="Enviar">
-    </form>
-</body>
+    <head>
+        <title>SyS - UTS Tecnologia | Reportes</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" th:href="@{/css/admin_report.css}">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="shortcut icon" th:href="@{/img/favicon.jpg}" type="image/x-icon">
+    </head>
+    <body>
+        <header>
+            <div class="return">
+                <a th:href="@{/panel#modal_tabla_usuarios}">Regresar</a>
+            </div>
+        </header>
+        <main>
+            <div class="form">
+                <form th:action="@{/reportes/save}" th:object="${reporte}" method="post">
+                    <input type="hidden" th:field="*{id}"><br>
+                    <div class="box_text">
+                        <div class="codigo">
+                            <label for="codigo">Codigo del Equipo: </label>
+                            <select name="" id="codigo" th:field="*{equipo}">
+                                <option th:each="equipo : ${equipos}" th:value="${equipo.id}">[[ ${equipo.codigo} ]]</option>
+                            </select>
+                        </div>
+                        <div class="description">
+                            <label for="descripcion">Descripción del problema: </label>
+                            <textarea name="" id="descripcion" th:field="*{descripcion}"></textarea>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="button">
+                        <button type="submit" class="b2">Enviar</button>
+                    </div>
+                    <hr>
+                </form>
+            </div>
+        </main>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js}" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
 </html>

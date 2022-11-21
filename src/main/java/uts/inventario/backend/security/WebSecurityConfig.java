@@ -35,7 +35,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authenticationProvider(authenticationProvider());
         http.authorizeRequests()
-                .antMatchers("/assets/**", "/register/**", "/usuarios/**")
+                .antMatchers("/css/**", "/img/**", "/register/**", "/usuarios/**")
                 .permitAll()
                 .antMatchers("/admin").hasAuthority("ADMIN")
                 .antMatchers("/cliente").hasAnyAuthority("CLIENTE")

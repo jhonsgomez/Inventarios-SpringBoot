@@ -5,25 +5,73 @@
 >
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>SyS - UTS Tecnologia | Equipos</title>
+    <link rel="shortcut icon" th:href="@{/img/favicon.jpg}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/add_equipment.css}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<a th:href="@{/equipos/}">Regresar</a>
-<form th:action="@{/equipos/save}" th:object="${equipo}" method="post">
-    <input type="hidden" th:field="*{id}"><br>
-    Imagen URL: <input type="text" th:field="*{imagen}"><br>
-    Categoria: <select th:field="*{categoria}">
-        <option th:each="categoria : ${categorias}" th:value="${categoria.id}">[[ ${categoria.nombre} ]]</option>
-    </select><br>
-    Nombre: <input type="text" th:field="*{nombre}"><br>
-    Descripcion: <input type="text" th:field="*{descripcion}"><br>
-    Ubicacion: <input type="text" th:field="*{ubicacion}"><br>
-    Precio: <input type="number" th:field="*{precio}"><br>
-    Estado: <select th:field="*{estado}">
-        <option th:each="estado : ${estados}" th:value="${estado.id}">[[ ${estado.nombre} ]]</option>
-    </select><br>
-    Fecha: <input type="date" th:field="*{fechaAdquisicion}">
-    <input type="submit" value="Enviar">
-</form>
-</body>
+    <header>
+        <div class="return">
+            <a th:href="@{/panel#modal_tabla_personal}">Regresar</a>
+        </div>
+    </header>
+    <main>
+        <div class="form">
+            <form th:action="@{/equipos/save}" th:object="${equipo}" method="post">
+                <input type="hidden" th:field="*{id}"><br>
+                <div class="box_text">
+                    <div class="description">
+                        <label for="url">URL de la imagen: </label>
+                        <input type="text" id="url" th:field="*{imagen}" required>
+                    </div>
+                    <div class="categorie">
+                        <label for="categorie">Categoria: </label>
+                        <select id="categorie" th:field="*{categoria}">
+                            <option th:each="categoria : ${categorias}" th:value="${categoria.id}">[[ ${categoria.nombre} ]]</option>
+                        </select>
+                    </div>
+                    <div class="name">
+                        <label for="name">Nombre: </label>
+                        <input type="text" id="name" th:field="*{nombre}" required>
+                    </div>
+                    <div class="description">
+                        <label for="description">Descripción: </label>
+                        <input type="text" id="description" th:field="*{descripcion}" required>
+                    </div>
+                    <div class="location">
+                        <label for="location">Ubicacón: </label>
+                        <input type="text" id="location" th:field="*{ubicacion}" required>
+                    </div>
+                    <div class="price">
+                        <label for="price">Precio: </label>
+                        <input type="text" id="price" th:field="*{precio}" required>
+                    </div>
+                    <div class="status">
+                        <label for="status">Estado: </label>
+                        <select id="status" th:field="*{estado}">
+                            <option th:each="estado : ${estados}" th:value="${estado.id}">[[ ${estado.nombre} ]]</option>
+                        </select>
+                    </div>
+                    <div class="date">
+                        <label for="date">Fecha: </label>
+                        <input type="date" name="date" th:field="*{fechaAdquisicion}" id="date">
+                    </div>
+                </div>
+                <hr>
+                <div class="button">
+                    <button type="submit" class="b2">Enviar</button>
+                </div>
+                <hr>
+            </form>
+        </div>
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js}" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
 </html>
