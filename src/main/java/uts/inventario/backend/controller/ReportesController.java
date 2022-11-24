@@ -94,7 +94,7 @@ public class ReportesController {
         }
         emailSend(reporte.getUsuario().getCorreo(), asunto, cuerpo);
         reporteRepository.deleteById(id);
-        return "redirect://panel#modal_tabla_usuarios";
+        return "redirect:/panel#modal_tabla_usuarios";
     }
 
     public void emailSend(String correo, String asunto, String cuerpo) {
